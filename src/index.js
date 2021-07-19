@@ -11,15 +11,15 @@ const db = require('./config/db');
 
 db.connect();
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(
-    express.urlencoded({
-        extended: true,
-    }),
-);
-app.use(express.json());
-app.use(methodOverride('_method'));
-//HTTP logger
+    app.use(express.static(path.join(__dirname, 'public')));
+    app.use(
+            express.urlencoded({
+                extended: true,
+            }),
+        );
+    app.use(express.json());
+    app.use(methodOverride('_method'));
+    //HTTP logger
 app.use(morgan('combined'));
 
 // Template engine
