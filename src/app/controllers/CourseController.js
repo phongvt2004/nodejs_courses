@@ -61,9 +61,15 @@ class CourseController {
     handleFormActions(req, res, next) {
         switch(req.body.action) {
             case 'delete':
+                for(var i = 0; i <req.body.courseIds.length; i++) {
+                    Courses.delete({ _id: req.body.courseIds[i]})
+                        .then(() => res.redirect('back'))
+                        .catch(next);
+                }
+                res.redirect('back');
                 break;
             default: 
-                res.json()
+                res.json(req.body)
         }
     }
 }
