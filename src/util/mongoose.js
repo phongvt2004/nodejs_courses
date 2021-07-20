@@ -6,3 +6,4 @@ module.exports = {
         return mongooses ? mongooses.toObject() : mongooses;
     },
 };
+function() {}
