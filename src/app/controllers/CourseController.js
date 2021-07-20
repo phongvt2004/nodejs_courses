@@ -23,9 +23,7 @@ class CourseController {
         course
             .save()
             .then(() => res.redirect('/me/stored/courses'))
-            .catch((err) => {
-                next(err);
-            });
+            .catch(next);
     }
     edit(req, res, next) {
         Courses.findById(req.params.id)
