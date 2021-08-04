@@ -5,10 +5,12 @@ class CourseController {
     // [GET] /courses/:slug
     show(req, res, next) {
         Courses.findOne({ slug: req.params.slug })
-            .then((course) =>
+            .then((course) => {
+                console.log(course)
                 res.render('courses/show', {
                     course: mongooseToObject(course),
-                }),
+                })
+            },
             )
             .catch((err) => {
                 next(err);
